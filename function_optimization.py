@@ -2,7 +2,6 @@ import time
 import xlsxwriter
 import numpy as np
 import pandas as pd
-import SwarmPackagePy
 import SwarmPackagePy as sp
 from SwarmPackagePy import testFunctions as tf
 from SwarmPackagePy import animation, animation3D
@@ -13,16 +12,9 @@ function_calls = [getattr(tf, x) for x in function_names]
 optimization_tecs = ['ca', 'ba', 'ssa']
 optimization_calls = [getattr(sp, x) for x in optimization_tecs]
 
-
 iterations = 100
 population = 50
 rounds = 15
-
-print(function_calls)
-print(optimization_calls)
-
-print(optimization_calls[0](50, function_calls[0], -10, 10, dimensions[0], 15).get_Gbest())
-
 
 for optimization in optimization_calls:
 	for function in function_calls:
